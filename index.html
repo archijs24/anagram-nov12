@@ -1,0 +1,62 @@
+<html>
+	<head>
+	<title>Anagram Checker</title>
+	</head>
+	<style>
+		*{font-size:2vw;font-family:Calibri;}
+		h1{border:solid;border-radius:2vw;background-color:lightblue;width:30%;}
+		form{border:groove;border-radius:2vw;background-color:white;width:30%;padding:20px;}
+		body{background-color:azure;}
+		input[type=submit]{background-color:lightblue;}
+	</style>
+	<body>
+	<center>
+		<h1>ANAGRAM CHECKER</h1>
+		<form onsubmit="check()">
+		<input type="text" id="string1" placeholder="enter first string">
+		<br><br>
+		<input type="text" id="string2" placeholder="enter second string">
+		<br><br>
+		<input type="submit" value="check">
+		</form>
+		<h2 id="msg"></h2>
+		<script>
+		function check()
+		{
+				event.preventDefault();
+				let string1=document.getElementById("string1");
+				let string2=document.getElementById("string2");
+				let msg=document.getElementById("msg");
+				let action=document.activeElement.value;
+
+				if(string1.value==="")
+				{
+					alert("Please enter first string");
+					msg.innerHTML="";
+					string1.focus();
+					return;
+				}	
+				
+				if(string2.value==="")
+				{
+					alert("Please enter second string");
+					msg.innerHTML="";
+					string2.focus();
+					return;
+				}	
+				
+				let fstring=string1.value.split("").sort().join("");
+
+				let sstring=string2.value.split("").sort().join("");
+
+				
+				if(fstring==sstring)
+					msg.innerHTML="Its Anagram";
+				else
+					msg.innerHTML="Its not Anagram";
+
+		}
+		</script>
+	</center>
+	</body>
+</html>
